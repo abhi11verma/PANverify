@@ -1,26 +1,25 @@
 
+//Onclick functionlality of Verify button
 var verify_btn = document.getElementById("verify_btn");
 verify_btn.onclick = function()
 {
     //Get values from the form
     var pan_no = document.getElementById("pan_no").value;
     var name = document.getElementById("name").value;
-    console.log(name+","+pan_no);
 
-    verifyPan(pan_no,name);
-
-    // //create a node 
-    //  var newbookmark = document.createElement("li");
-    //  var bookmarktext = document.createTextNode(link);
-    //  newbookmark.appendChild(bookmarktext);
-
-    // var list = document.getElementById("bookmark_link_list");
-    // list.appendChild(newbookmark);
-    // //add to the list
+    if(pan_no == "" || name == "") //Check if all fields are filled or not
+    {
+        alert("Please enter all the fields!");
+    }
+    else{
+        verifyPan(pan_no,name);  // Call to verification function
+    }
 
 }
+//------------------------End of button click event function------------------------
 
 
+//Function to verify PAN Number
 function verifyPan(pan_no,name){
 
     //Create new connection
@@ -35,8 +34,7 @@ function verifyPan(pan_no,name){
        // console.log(result.pan_result);
         
         //break by td
-        //console.log(result.pan_result.split("<td>"));
-
+       
         if(result.pan_result.indexOf("Invalid PAN")!= -1)
         {   //if Invalid pan
             console.log("invalid pan");
@@ -51,18 +49,15 @@ function verifyPan(pan_no,name){
             console.log(name_received);
 
             if(name_received == name.toUpperCase())
-            {
+            {//if entered name and received name are same then its VALID PAN
                 console.log("verified");
                 notify("valid");
             }
-            else{
+            else{ // if name does not match , its INVALID PAN
                 console.log("Incorrect name");
                 notify("invalid");
             }
-            
-           
         }
-    
     }
 
     //Set post values
@@ -70,9 +65,9 @@ function verifyPan(pan_no,name){
     //Cal the API
     panAPI.send(values);
 }
+//------------------------End of verifyPAN function------------------------
 
-
-
+//Function to set alert type class and message box value based on the result
 function notify(value){
 
     if(value == "valid")
@@ -88,3 +83,4 @@ function notify(value){
         document.getElementById('result').innerText = "Unknown error";
     }
 }
+//------------------------End of notify function------------------------

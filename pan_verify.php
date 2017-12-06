@@ -24,7 +24,7 @@
                     <div class="col-md-6 panel panel-default">
                             <div class="form-group">
                                     <label for="name">Name:</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <input type="text" class="form-control" id="name" >
                             </div>
                             <div class="form-group">
                                     <label for="pan">Pan:</label>
