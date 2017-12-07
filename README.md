@@ -3,7 +3,7 @@
 ## Setup Instruction on Local host
 1. Clone the repository "PANverify" for windows: C:\xampp\htdocs\ 
 2. Start local server
-3. Open:  loalhost/PANverify/pan_verify.php
+3. Open:  localhost/PANverify/pan_verify.php
 4. Enter PAN NUMBER and Name, Click VERIFY -> result will be shown under verify button
 
 `*Active internet connection is requried to test the application`
